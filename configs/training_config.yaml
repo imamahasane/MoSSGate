@@ -1,0 +1,47 @@
+seed: 42
+deterministic: true
+
+data:
+  dataset: isic2017
+  root: /path/to/ISIC
+  image_dir: images
+  mask_dir: masks
+  train_split: splits/train.txt
+  val_split: splits/val.txt
+  test_split: splits/test.txt
+  img_size: 352
+  num_workers: 8
+  pin_memory: true
+
+model:
+  in_channels: 3
+  out_channels: 1
+  base_channels: 64
+  norm: bn
+  bilinear: true
+  moss_stages: ["enc4"]
+  moss_groups: 4
+  moss_mem_slots: 32
+  moss_gate_dilation: 3
+
+train:
+  epochs: 80
+  batch_size: 8
+  amp: true
+  grad_clip_norm: 1.0
+  log_every: 50
+  eval_every: 1
+  save_every: 1
+
+optim:
+  name: adamw
+  lr: 1.0e-3
+  weight_decay: 1.0e-5
+
+loss:
+  dice_smooth: 1.0e-6
+  bce_weight: 0.5
+  dice_weight: 0.5
+
+inference:
+  threshold: 0.5
