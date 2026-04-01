@@ -7,7 +7,7 @@
 Official implementation of the paper:  
 > **“MoSSGate: Memory-Modulated State-Space Gating for Efficient Skin Lesion Segmentation”**  
 > *Anum Malik, A. F. M Abdun Noor, Md Imam Ahasan, Mahnoor Buriro*
-> **
+
 
 ---
 
